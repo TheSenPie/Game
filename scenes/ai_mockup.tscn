@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://qrur31x2nd0q"]
+
+[ext_resource type="PackedScene" uid="uid://k2iq5kaub1nh" path="res://scenes/mob.tscn" id="1_x7ha3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_e6xpk"]
+size = Vector3(60, 1, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ca32"]
+size = Vector3(10, 1, 10)
+
+[node name="AIMockup" type="Node3D"]
+
+[node name="ground" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ground"]
+mesh = SubResource("BoxMesh_e6xpk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground"]
+shape = SubResource("BoxShape3D_7ca32")
+
+[node name="Mob" parent="." instance=ExtResource("1_x7ha3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72016, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.710013, 0.704188, 0, -0.704188, 0.710013, 0, 9.37926, 10.3699)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.85244, -0.219027, 0.474736, 0, 0.908019, 0.418929, -0.522826, -0.357112, 0.774031, 6.28049, 8.24961, 2.56896)
+shadow_enabled = true
