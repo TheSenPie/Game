@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fw0ffvsjtgaf"
-path="res://.godot/imported/Movement Keys (1).png-f76db1f66a4fbb1665f94ce0ad84a92a.ctex"
+uid="uid://vv6u0y5intrc"
+path="res://.godot/imported/Movement Keys.png-4ec384d66f3de75e405ab730d8082159.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Movement Keys (1).png"
-dest_files=["res://.godot/imported/Movement Keys (1).png-f76db1f66a4fbb1665f94ce0ad84a92a.ctex"]
+source_file="res://sprites/Movement Keys.png"
+dest_files=["res://.godot/imported/Movement Keys.png-4ec384d66f3de75e405ab730d8082159.ctex"]
 
 [params]
 

@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5x4c77kgyjkw"]
+
+[ext_resource type="Script" path="res://Scripts/Level_1.gd" id="1_yxnpc"]
+[ext_resource type="PackedScene" uid="uid://bilvx7h1lggct" path="res://scenes/floor.tscn" id="2_5j2n6"]
+[ext_resource type="PackedScene" uid="uid://ciqrpd5675boy" path="res://Player/Player.tscn" id="3_bjlix"]
+
+[node name="Level_1" type="Node3D"]
+script = ExtResource("1_yxnpc")
+
+[node name="StaticBody3D" parent="." instance=ExtResource("2_5j2n6")]
+
+[node name="Player" parent="." instance=ExtResource("3_bjlix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13736, 0)
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 10.0
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 98.0
+offset_top = 85.0
+offset_right = 354.0
+offset_bottom = 194.0
+size_flags_horizontal = 0
+text = "00.00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pause" type="Control" parent="CanvasLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = 116.0
+offset_top = 76.0
+offset_right = 1054.0
+offset_bottom = 578.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Pause"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Pause"]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 126.0
+offset_right = 527.0
+offset_bottom = 195.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Game paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resume" type="Button" parent="CanvasLayer/Pause"]
+layout_mode = 0
+offset_left = 387.0
+offset_top = 230.0
+offset_right = 519.0
+offset_bottom = 274.0
+text = "Resume"
+
+[node name="Quit" type="Button" parent="CanvasLayer/Pause"]
+layout_mode = 0
+offset_left = 388.0
+offset_top = 293.0
+offset_right = 520.0
+offset_bottom = 337.0
+text = "Quit"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/Pause/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/Quit" to="." method="_on_quit_pressed"]
