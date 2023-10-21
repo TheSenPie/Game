@@ -16,5 +16,4 @@ shape = SubResource("1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
 transform = Transform3D(0.0368914, 0, 0, 0, 0.0316211, 0, 0, 0, 0.0881898, 0, 0, 0)
-visible = false
 mesh = SubResource("2")

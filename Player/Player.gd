@@ -267,7 +267,7 @@ func _register_input_actions() -> void:
 		#"attack": MOUSE_BUTTON_LEFT,
 		"attack":KEY_V,
 		#"aim": MOUSE_BUTTON_RIGHT,
-		"aim":KEY_B,
+		"aim":MOUSE_BUTTON_MIDDLE,
 		"swap_weapons": KEY_TAB,
 		"pause": KEY_ESCAPE,
 		"camera_left": KEY_Q,
