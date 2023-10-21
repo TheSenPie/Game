@@ -3,6 +3,10 @@ extends CharacterBody3D
 
 signal weapon_switched(weapon_name: String)
 
+
+
+
+
 const BULLET_SCENE := preload("Bullet.tscn")
 #const COIN_SCENE := preload("Coin/Coin.tscn")
 
@@ -79,10 +83,10 @@ func _physics_process(delta: float) -> void:
 		_ground_height = global_position.y
 
 	# Swap weapons
-	if Input.is_action_just_pressed("swap_weapons"):
-		_equipped_weapon = WEAPON_TYPE.DEFAULT if _equipped_weapon == WEAPON_TYPE.GRENADE else WEAPON_TYPE.GRENADE
-		_grenade_aim_controller.visible = _equipped_weapon == WEAPON_TYPE.GRENADE
-		emit_signal("weapon_switched", WEAPON_TYPE.keys()[_equipped_weapon])
+#	if Input.is_action_just_pressed("swap_weapons"):
+##		_equipped_weapon = WEAPON_TYPE.DEFAULT if _equipped_weapon == WEAPON_TYPE.GRENADE else WEAPON_TYPE.GRENADE
+	#	_grenade_aim_controller.visible = _equipped_weapon == WEAPON_TYPE.GRENADE
+#		emit_signal("weapon_switched", WEAPON_TYPE.keys()[_equipped_weapon])
 
 	# Get input and movement state
 	var is_attacking := Input.is_action_pressed("attack") and not _attack_animation_player.is_playing()
@@ -265,10 +269,9 @@ func _register_input_actions() -> void:
 		"move_down": KEY_S,
 		"jump": KEY_SPACE,
 		#"attack": MOUSE_BUTTON_LEFT,
-		"attack":KEY_V,
-		#"aim": MOUSE_BUTTON_RIGHT,
-		"aim":MOUSE_BUTTON_MIDDLE,
-		"swap_weapons": KEY_TAB,
+		#"attack":KEY_V,
+		"aim": MOUSE_BUTTON_RIGHT,
+		#"swap_weapons": KEY_TAB,
 		"pause": KEY_ESCAPE,
 		"camera_left": KEY_Q,
 		"camera_right": KEY_E,

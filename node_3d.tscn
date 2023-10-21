@@ -5,7 +5,7 @@
 
 [node name="Node3D" type="Node3D"]
 
+[node name="StaticBody3D" parent="." instance=ExtResource("2_pf0no")]
+
 [node name="Player" parent="." instance=ExtResource("1_kw6t6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13736, 0)
-
-[node name="StaticBody3D" parent="." instance=ExtResource("2_pf0no")]
