@@ -13,3 +13,7 @@ func _process(delta):
 
 func _on_startbutton_pressed():
 	get_tree().change_scene_to_file("node_3d.tscn")
+
+
+
+	

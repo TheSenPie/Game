@@ -88,6 +88,9 @@ func _physics_process(delta: float) -> void:
 	#	_grenade_aim_controller.visible = _equipped_weapon == WEAPON_TYPE.GRENADE
 #		emit_signal("weapon_switched", WEAPON_TYPE.keys()[_equipped_weapon])
 
+	if Input.is_action_just_pressed(("pause")):
+		pause()
+
 	# Get input and movement state
 	var is_attacking := Input.is_action_pressed("attack") and not _attack_animation_player.is_playing()
 	var is_just_attacking := Input.is_action_just_pressed("attack")
@@ -201,6 +204,9 @@ func shoot() -> void:
 	bullet.distance_limit = 14.0
 	get_parent().add_child(bullet)
 	bullet.global_position = origin
+	
+func pause() -> void:
+	get_tree().change_scene_to_file("MainMenu.tscn")
 
 
 func reset_position() -> void:
