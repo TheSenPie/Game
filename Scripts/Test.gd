@@ -16,6 +16,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var direction = sphere - rope
-	direction = direction.normalized()
+	#var direction = rope.position - sphere.position
+	#direction = direction.normalized()
+	#sphere.translate(direction * 0.01)
+	#rope.translate(direction * 0.01)
+	
 	pass
