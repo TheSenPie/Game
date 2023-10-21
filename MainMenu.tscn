@@ -1,15 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://bem8uad1ngpsw"]
+[gd_scene load_steps=4 format=3 uid="uid://bem8uad1ngpsw"]
 
 [ext_resource type="Script" path="res://Menu1.gd" id="1_qcri4"]
+[ext_resource type="FontFile" uid="uid://60sudfyn4e2b" path="res://arial.ttf" id="2_lmn8d"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uwlt8"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_qcri4")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.0705882, 0.113725, 1, 1)
+offset_right = 1159.0
+offset_bottom = 651.0
+texture = SubResource("NoiseTexture2D_uwlt8")
+
 [node name="Game Namel" type="Label" parent="."]
-offset_left = 550.0
-offset_top = 110.0
-offset_right = 590.0
-offset_bottom = 136.0
+offset_left = 524.0
+offset_top = 104.0
+offset_right = 624.0
+offset_bottom = 157.0
+theme_override_colors/font_color = Color(0.611001, 0.533379, 0.248864, 1)
+theme_override_fonts/font = ExtResource("2_lmn8d")
+theme_override_font_sizes/font_size = 44
 text = "DOG"
 horizontal_alignment = 1
 
