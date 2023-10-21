@@ -73,6 +73,52 @@ offset_right = 520.0
 offset_bottom = 337.0
 text = "Quit"
 
+[node name="GameOver" type="Control" parent="CanvasLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = 116.0
+offset_top = 76.0
+offset_right = 1054.0
+offset_bottom = 578.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/GameOver"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/GameOver"]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 126.0
+offset_right = 527.0
+offset_bottom = 195.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "YOUR DOGS SCAPE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="CanvasLayer/GameOver"]
+layout_mode = 0
+offset_left = 387.0
+offset_top = 230.0
+offset_right = 519.0
+offset_bottom = 274.0
+text = "Restart"
+
+[node name="Quit" type="Button" parent="CanvasLayer/GameOver"]
+layout_mode = 0
+offset_left = 388.0
+offset_top = 293.0
+offset_right = 520.0
+offset_bottom = 337.0
+text = "Quit"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/Pause/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameOver/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameOver/Quit" to="." method="_on_quit_pressed"]
