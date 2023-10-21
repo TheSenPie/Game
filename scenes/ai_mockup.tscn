@@ -1,29 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://qrur31x2nd0q"]
+[gd_scene load_steps=5 format=3 uid="uid://qrur31x2nd0q"]
 
 [ext_resource type="PackedScene" uid="uid://k2iq5kaub1nh" path="res://scenes/mob.tscn" id="1_x7ha3"]
+[ext_resource type="PackedScene" uid="uid://cnl3peo4qnjrh" path="res://assets/level/test_slope_and_flat.dae" id="2_40jan"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_e6xpk"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_dmgcj"]
 size = Vector3(60, 1, 60)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7ca32"]
-size = Vector3(10, 1, 10)
+[sub_resource type="BoxMesh" id="BoxMesh_ky2ma"]
+size = Vector3(60, 1, 60)
 
 [node name="AIMockup" type="Node3D"]
 
-[node name="ground" type="StaticBody3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ground"]
-mesh = SubResource("BoxMesh_e6xpk")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ground"]
-shape = SubResource("BoxShape3D_7ca32")
-
 [node name="Mob" parent="." instance=ExtResource("1_x7ha3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72016, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36996, 6.12261, 0.529281)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.710013, 0.704188, 0, -0.704188, 0.710013, 0, 9.37926, 10.3699)
+transform = Transform3D(-4.37114e-08, 0.584958, -0.811064, 0, 0.811064, 0.584958, 1, 2.55693e-08, -3.54527e-08, -20, 8.085, 2.836)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.85244, -0.219027, 0.474736, 0, 0.908019, 0.418929, -0.522826, -0.357112, 0.774031, 6.28049, 8.24961, 2.56896)
 shadow_enabled = true
+
+[node name="first_floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="first_floor"]
+shape = SubResource("BoxShape3D_dmgcj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="first_floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.9406, 0.569718, -0.297056)
+mesh = SubResource("BoxMesh_ky2ma")
+
+[node name="second_floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92, 3.9, 0.006)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="second_floor"]
+shape = SubResource("BoxShape3D_dmgcj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="second_floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.9406, 0.569718, -0.297056)
+mesh = SubResource("BoxMesh_ky2ma")
+
+[node name="test_slope_and_flat" parent="." instance=ExtResource("2_40jan")]

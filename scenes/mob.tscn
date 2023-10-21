@@ -3,16 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://jqm6ts6u00sv" path="res://assets/mob.glb" id="1_1qbp5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m1u41"]
-radius = 0.975751
-height = 3.1507
+radius = 1.32579
+height = 3.64346
 
 [node name="Mob" type="Node3D"]
-
-[node name="mob" parent="." instance=ExtResource("1_1qbp5")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.152034)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00152826, 0.013449, 0.145835)
 shape = SubResource("CapsuleShape3D_m1u41")
+
+[node name="character" parent="RigidBody3D" instance=ExtResource("1_1qbp5")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
