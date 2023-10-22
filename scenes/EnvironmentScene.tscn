@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://byplycxdqkfg6"]
+
+[ext_resource type="Texture2D" uid="uid://cirbvgqbpmq0" path="res://assets/Skyboxes/HdrSkyOvercast001_HDR_4K.exr" id="1_118rt"]
+[ext_resource type="PackedScene" uid="uid://b5x4c77kgyjkw" path="res://scenes/Level_1.tscn" id="2_un4ie"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_607b5"]
+panorama = ExtResource("1_118rt")
+
+[sub_resource type="Sky" id="Sky_ffryb"]
+sky_material = SubResource("PanoramaSkyMaterial_607b5")
+
+[sub_resource type="Environment" id="Environment_7r77n"]
+background_mode = 2
+sky = SubResource("Sky_ffryb")
+
+[node name="EnvironmentScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7r77n")
+
+[node name="Level_1" parent="." instance=ExtResource("2_un4ie")]
