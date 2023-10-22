@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 signal weapon_switched(weapon_name: String)
 
-
+var death_height = Vector3(0,-20,0)
 
 
 
@@ -82,6 +82,8 @@ func _physics_process(delta: float) -> void:
 		_ground_height = global_position.y + _ground_shapecast.target_position.y
 	if global_position.y < _ground_height:
 		_ground_height = global_position.y
+	if global_position.y < death_height.y:
+		global_position = Vector3(0,10,0)
 
 	# Swap weapons
 #	if Input.is_action_just_pressed("swap_weapons"):
