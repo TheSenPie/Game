@@ -8,6 +8,8 @@ var speed = SPEED
 # animations
 @onready var anim_player = $AnimationPlayer
 
+@onready var hurtbox = $Area3D
+
 # AI
 var ai:UtilityAIAgent
 var sensor_distance_to_target:UtilityAISensor
@@ -17,6 +19,7 @@ var current_action:UtilityAIAction
 enum { HUNGRY, TAMED, RUNNING }
 
 var state = HUNGRY
+var health = 3
 
 var target_location: Vector3
 
@@ -45,7 +48,8 @@ func _process(delta):
 		return
 	
 	# Update the position
-	move_and_slide()
+	if (state != TAMED):
+		move_and_slide()
 	
 	# Update otherwise based on current action.
 	if current_action.name == "Move":
@@ -116,3 +120,11 @@ func end_action(action_node):
 		pass
 	elif current_action.name == "Bark":
 		pass
+
+func _on_area_3d_area_entered(area):
+	if area.is_in_group("BulletGroup"):
+		health -= 1
+		print(health)
+		if(health <= 0):
+			hurtbox.disable_mode = true
+			state = TAMED
