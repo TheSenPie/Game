@@ -53,7 +53,7 @@ enum WEAPON_TYPE { DEFAULT, GRENADE }
 @onready var _gravity: float = -30.0
 @onready var _ground_height: float = 0.0
 @onready var _start_position := global_transform.origin
-@onready var _coins := 0
+#@onready var _coins := 0
 @onready var _is_on_floor_buffer := false
 
 @onready var _shoot_cooldown_tick := shoot_cooldown

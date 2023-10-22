@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dbn2lqmw7uney"]
+[gd_scene load_steps=27 format=3 uid="uid://dbn2lqmw7uney"]
 
 [ext_resource type="Texture2D" uid="uid://b308gr5nibcb8" path="res://assets/dogs/WhiteDog_Tex_Dog_White.png" id="1_pm4b7"]
 [ext_resource type="Script" path="res://Scripts/white_dog.gd" id="2_ewxl2"]
@@ -1775,8 +1775,17 @@ _data = {
 "Rig|Rig|Walk": SubResource("Animation_8h2qt")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_t6bpo"]
-size = Vector3(1, 2.00263, 2.8713)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uejvh"]
+radius = 0.954719
+height = 4.80441
+
+[sub_resource type="Curve" id="Curve_4ekvg"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.355987, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_g6nnw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.174757, 0.0210526), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="WhiteDog" type="CharacterBody3D" groups=["white_dogs"]]
 script = ExtResource("2_ewxl2")
@@ -2022,14 +2031,36 @@ libraries = {
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_height_offset = 1.0
+path_max_distance = 100.01
 avoidance_enabled = true
 debug_enabled = true
 debug_path_custom_color = Color(0.972549, 0, 0, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.110211, 1.06097, -0.000569344)
-shape = SubResource("BoxShape3D_t6bpo")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.110211, 1.06097, -0.000569344)
+shape = SubResource("CapsuleShape3D_uejvh")
+
+[node name="UtilityAIAgent" type="UtilityAIAgent" parent="."]
+thinking_delay_in_seconds = 0.1
+
+[node name="DistanceToTarget" type="UtilityAISensor" parent="UtilityAIAgent"]
+
+[node name="ApproachTargetBehaviour" type="UtilityAIBehaviour" parent="UtilityAIAgent"]
+
+[node name="Am I far from target" type="UtilityAIConsideration" parent="UtilityAIAgent/ApproachTargetBehaviour"]
+input_sensor_node_path = NodePath("../../DistanceToTarget")
+activation_curve = SubResource("Curve_4ekvg")
+
+[node name="Move" type="UtilityAIAction" parent="UtilityAIAgent/ApproachTargetBehaviour"]
+
+[node name="BarkBehaviour" type="UtilityAIBehaviour" parent="UtilityAIAgent"]
+
+[node name="Am I near target" type="UtilityAIConsideration" parent="UtilityAIAgent/BarkBehaviour"]
+activation_curve = SubResource("Curve_g6nnw")
+
+[node name="Bark" type="UtilityAIAction" parent="UtilityAIAgent/BarkBehaviour"]
 
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]
+[connection signal="action_changed" from="UtilityAIAgent" to="." method="_on_utility_ai_agent_action_changed"]
