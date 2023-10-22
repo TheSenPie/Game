@@ -1,0 +1,11 @@
+Stylized Grass Tutorial Part I Source Files
+
+includes:
+- Blender source file
+- .glb file for Godot Engine import
+
+No shader included
+
+Use these however you want, they are open source.
+
+grass.glb can be dropped right into your Godot project.
