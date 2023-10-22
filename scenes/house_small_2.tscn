@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1m7horeriigo"]
+
+[ext_resource type="PackedScene" uid="uid://bw6ryllbswmw0" path="res://assets/houses/house_small_2.gltf" id="1_0itxe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k3lt8"]
+size = Vector3(4.60196, 2.2559, 4.33266)
+
+[node name="house_small_garge" type="StaticBody3D"]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.271414, 1.96155, -0.325606)
+shape = SubResource("BoxShape3D_k3lt8")
+
+[node name="house_small_2" parent="." instance=ExtResource("1_0itxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
