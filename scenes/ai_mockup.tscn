@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/ai_mockup.gd" id="1_w4br5"]
 [ext_resource type="PackedScene" uid="uid://k2iq5kaub1nh" path="res://scenes/mob.tscn" id="1_x7ha3"]
+[ext_resource type="PackedScene" uid="uid://bntu30x0h8cqp" path="res://assets/level/level_draft_3.dae" id="3_3cnr1"]
 [ext_resource type="PackedScene" uid="uid://ciqrpd5675boy" path="res://Player/Player.tscn" id="3_5vtjr"]
-[ext_resource type="PackedScene" uid="uid://dmxgrgnptca3a" path="res://assets/level/level draft 4.dae" id="3_s4qml"]
 [ext_resource type="PackedScene" uid="uid://dbn2lqmw7uney" path="res://scenes/white_dog.tscn" id="4_cyyx2"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_crvc7"]
@@ -28,7 +28,7 @@ shadow_enabled = true
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_crvc7")
 
-[node name="level draft 4" parent="NavigationRegion3D" instance=ExtResource("3_s4qml")]
+[node name="level_draft_3" parent="NavigationRegion3D" instance=ExtResource("3_3cnr1")]
 
 [node name="Player" parent="." instance=ExtResource("3_5vtjr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.0267, 1.46043, 6.49484)
