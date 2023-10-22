@@ -14,9 +14,6 @@
 sample_partition_type = 2
 agent_height = 2.0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_2n2ml"]
-size = Vector3(209.894, 4.97708, 226.582)
-
 [node name="AIMockup" type="Node3D"]
 script = ExtResource("1_w4br5")
 
