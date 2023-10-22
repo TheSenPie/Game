@@ -248,6 +248,8 @@ y_amplitude = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.604131)
 current = true
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="PlayerUI/CoinsContainer/SubViewportContainer/SubViewport"]
+
 [node name="CoinsLabel" type="Label" parent="PlayerUI/CoinsContainer"]
 layout_mode = 2
 size_flags_horizontal = 3

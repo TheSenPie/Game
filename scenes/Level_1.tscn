@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5x4c77kgyjkw"]
 
 [ext_resource type="Script" path="res://Scripts/Level_1.gd" id="1_yxnpc"]
-[ext_resource type="PackedScene" uid="uid://bilvx7h1lggct" path="res://scenes/floor.tscn" id="2_5j2n6"]
+[ext_resource type="PackedScene" path="res://scenes/floor.tscn" id="2_5j2n6"]
 [ext_resource type="PackedScene" uid="uid://ciqrpd5675boy" path="res://Player/Player.tscn" id="3_bjlix"]
 
 [node name="Level_1" type="Node3D"]

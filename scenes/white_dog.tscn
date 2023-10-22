@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dbn2lqmw7uney"]
+[gd_scene load_steps=28 format=3 uid="uid://dbn2lqmw7uney"]
 
 [ext_resource type="Texture2D" uid="uid://b308gr5nibcb8" path="res://assets/dogs/WhiteDog_Tex_Dog_White.png" id="1_pm4b7"]
 [ext_resource type="Script" path="res://Scripts/white_dog.gd" id="2_ewxl2"]
@@ -1776,21 +1776,24 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uejvh"]
-radius = 0.954719
-height = 4.80441
+radius = 0.321772
+height = 1.21885
 
 [sub_resource type="Curve" id="Curve_4ekvg"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.355987, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.242105), 0.0, 0.0, 0, 0, Vector2(0.773463, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_g6nnw"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.174757, 0.0210526), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="WhiteDog" type="CharacterBody3D" groups=["white_dogs"]]
+[sub_resource type="BoxShape3D" id="BoxShape3D_rxc4j"]
+
+[node name="WhiteDog" type="CharacterBody3D" groups=["dog", "white_dogs"]]
 script = ExtResource("2_ewxl2")
 
 [node name="Rig" type="Node3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Rig"]
 bones/0/name = "Root"
@@ -2037,7 +2040,7 @@ debug_enabled = true
 debug_path_custom_color = Color(0.972549, 0, 0, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.110211, 1.06097, -0.000569344)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.110211, 0.311963, -0.000569344)
 shape = SubResource("CapsuleShape3D_uejvh")
 
 [node name="UtilityAIAgent" type="UtilityAIAgent" parent="."]
@@ -2060,7 +2063,14 @@ activation_curve = SubResource("Curve_g6nnw")
 
 [node name="Bark" type="UtilityAIAction" parent="UtilityAIAgent/BarkBehaviour"]
 
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37438, 0)
+shape = SubResource("BoxShape3D_rxc4j")
+
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]
 [connection signal="action_changed" from="UtilityAIAgent" to="." method="_on_utility_ai_agent_action_changed"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

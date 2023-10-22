@@ -16,7 +16,7 @@ script = ExtResource("1_8b555")
 scale_decay = SubResource("Curve_2sbfy")
 distance_limit = 6.0
 
-[node name="Area3d" type="Area3D" parent="."]
+[node name="Area3d" type="Area3D" parent="." groups=["BulletGroup"]]
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="Area3d"]
 shape = SubResource("SphereShape3D_qbh4s")
@@ -29,4 +29,4 @@ transform = Transform3D(1, 0, 0, 0, 0.835184, 0.549971, 0, -0.549971, 0.835184, 
 
 [node name="ProjectileSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_3vyow")
-volume_db = 1.0
+volume_db = 0.5

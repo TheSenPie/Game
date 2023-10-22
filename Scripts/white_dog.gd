@@ -8,6 +8,8 @@ var speed = SPEED
 # animations
 @onready var anim_player = $AnimationPlayer
 
+@onready var hurtbox = $Area3D
+
 # AI
 var ai:UtilityAIAgent
 var sensor_distance_to_target:UtilityAISensor
@@ -17,6 +19,7 @@ var current_action:UtilityAIAction
 enum { HUNGRY, TAMED, RUNNING }
 
 var state = HUNGRY
+var health = 3
 
 var target_location: Vector3
 
@@ -34,7 +37,7 @@ func _process(delta):
 	# Sense
 	var vec_to_target = target_location - global_transform.origin
 	var distance = vec_to_target.length()
-	sensor_distance_to_target.sensor_value = distance / 50
+	sensor_distance_to_target.sensor_value = distance / 10
 	
 	# Think
 	ai.evaluate_options(delta)
@@ -45,13 +48,14 @@ func _process(delta):
 		return
 	
 	# Update the position
-	move_and_slide()
+	if (state != TAMED):
+		move_and_slide()
 	
 	# Update otherwise based on current action.
 	if current_action.name == "Move":
 		if distance <= 4.0:
 			current_action.is_finished = true
-	elif current_action.name == "Pickup":
+	elif current_action.name == "Bark":
 		current_action.is_finished = true
 
 func _physics_process(delta):
@@ -65,7 +69,6 @@ func _physics_process(delta):
 	var new_angle = atan2(new_direction.x, new_direction.z)
 	
 	transform.basis = Basis(axis, new_angle)
-
 
 func update_target_location(target_location):
 	self.target_location = target_location
@@ -117,3 +120,11 @@ func end_action(action_node):
 		pass
 	elif current_action.name == "Bark":
 		pass
+
+func _on_area_3d_area_entered(area):
+	if area.is_in_group("BulletGroup"):
+		health -= 1
+		print(health)
+		if(health <= 0):
+			hurtbox.disable_mode = true
+			state = TAMED
