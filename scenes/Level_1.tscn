@@ -10,7 +10,7 @@ script = ExtResource("1_yxnpc")
 [node name="StaticBody3D" parent="." instance=ExtResource("2_5j2n6")]
 
 [node name="Player" parent="." instance=ExtResource("3_bjlix")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13736, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10132, 0)
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0

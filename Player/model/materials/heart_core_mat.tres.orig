@@ -4,8 +4,8 @@
 albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
 emission = Color(0, 1, 0.392157, 1)
-<<<<<<< HEAD
-emission_energy_multiplier = 1.96854
+<<<<<<< Updated upstream
+emission_energy_multiplier = 1.71181
 =======
-emission_energy_multiplier = 0.954318
->>>>>>> fa012cc7f070114064ceeda724c072f1214f19b8
+emission_energy_multiplier = 2.32754
+>>>>>>> Stashed changes

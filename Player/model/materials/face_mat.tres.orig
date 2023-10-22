@@ -1,11 +1,11 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dh42cdejchkr3"]
 
 [ext_resource type="Shader" path="res://Player/face_mat.gdshader" id="1_u8nh3"]
-<<<<<<< HEAD
-[ext_resource type="Texture2D" uid="uid://ci7cn145ld3l5" path="res://Player/model/faces/closed.png" id="2_nox8f"]
+<<<<<<< Updated upstream
+[ext_resource type="Texture2D" uid="uid://dbag7f8i27ub1" path="res://Player/model/faces/open.png" id="2_qcwon"]
 =======
-[ext_resource type="Texture2D" uid="uid://dbag7f8i27ub1" path="res://Player/model/faces/open.png" id="2_evqcu"]
->>>>>>> ef901481fe18d2b43491c24dae7bcd8deb713bc4
+[ext_resource type="Texture2D" uid="uid://dbag7f8i27ub1" path="res://Player/model/faces/open.png" id="2_d65wi"]
+>>>>>>> Stashed changes
 
 [resource]
 render_priority = 0
@@ -16,8 +16,8 @@ shader_parameter/screen_red_offset = Vector2(0, 0)
 shader_parameter/screen_green_offset = Vector2(0, 0)
 shader_parameter/screen_blue_offset = Vector2(0, 0)
 shader_parameter/pixel_size = 44.0
-<<<<<<< HEAD
-shader_parameter/face_texture = ExtResource("2_nox8f")
+<<<<<<< Updated upstream
+shader_parameter/face_texture = ExtResource("2_qcwon")
 =======
-shader_parameter/face_texture = ExtResource("2_evqcu")
->>>>>>> ef901481fe18d2b43491c24dae7bcd8deb713bc4
+shader_parameter/face_texture = ExtResource("2_d65wi")
+>>>>>>> Stashed changes

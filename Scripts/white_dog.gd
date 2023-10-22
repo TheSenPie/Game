@@ -4,6 +4,8 @@ extends CharacterBody3D
 @onready var nav_agent = $NavigationAgent3D
 var SPEED = 3.0
 var speed = SPEED
+var health = 3
+@onready var hurtbox = $Area3D
 
 # animations
 @onready var anim_player = $AnimationPlayer
@@ -34,7 +36,7 @@ func _process(delta):
 	# Sense
 	var vec_to_target = target_location - global_transform.origin
 	var distance = vec_to_target.length()
-	sensor_distance_to_target.sensor_value = 1# distance / 50
+	sensor_distance_to_target.sensor_value = distance / 50
 	
 	# Think
 	ai.evaluate_options(delta)
@@ -116,3 +118,17 @@ func end_action(action_node):
 		pass
 	elif current_action.name == "Bark":
 		pass
+
+
+func _on_area_3d_area_entered(area):
+	#var actual_damage = receive_damage(hitbox.damage)
+	if area.is_in_group("BulletGroup"):
+		health -= 1
+		print(health)
+		if(health <= 0):
+			hurtbox.disable_mode = true
+			state = TAMED
+	
+	#receive_knockback(hitbox.global_position, actual_damage)
+	#spawn_effect(EFFECT_HIT)
+	#spawn_dmgIndicator(actual_damage)
