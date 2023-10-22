@@ -34,7 +34,7 @@ func _process(delta):
 	# Sense
 	var vec_to_target = target_location - global_transform.origin
 	var distance = vec_to_target.length()
-	sensor_distance_to_target.sensor_value = distance / 50
+	sensor_distance_to_target.sensor_value = 1# distance / 50
 	
 	# Think
 	ai.evaluate_options(delta)
@@ -65,7 +65,6 @@ func _physics_process(delta):
 	var new_angle = atan2(new_direction.x, new_direction.z)
 	
 	transform.basis = Basis(axis, new_angle)
-
 
 func update_target_location(target_location):
 	self.target_location = target_location
