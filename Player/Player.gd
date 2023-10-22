@@ -83,7 +83,7 @@ func _physics_process(delta: float) -> void:
 	if global_position.y < _ground_height:
 		_ground_height = global_position.y
 	if global_position.y < death_height.y:
-		global_position = Vector3(0,10,0)
+		global_position = Vector3(-28.027,20,6.495)
 
 	# Swap weapons
 #	if Input.is_action_just_pressed("swap_weapons"):
