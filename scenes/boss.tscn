@@ -1,13 +1,13 @@
-[gd_scene load_steps=28 format=3 uid="uid://dbn2lqmw7uney"]
+[gd_scene load_steps=28 format=3 uid="uid://pmh0yaxs5ndw"]
 
-[ext_resource type="Texture2D" uid="uid://b308gr5nibcb8" path="res://assets/dogs/WhiteDog_Tex_Dog_White.png" id="1_pm4b7"]
-[ext_resource type="Script" path="res://Scripts/white_dog.gd" id="2_ewxl2"]
+[ext_resource type="Script" path="res://Scripts/white_dog.gd" id="1_0s1nf"]
+[ext_resource type="Texture2D" uid="uid://b308gr5nibcb8" path="res://assets/dogs/WhiteDog_Tex_Dog_White.png" id="2_gfpfx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3drm"]
 resource_name = "Material.001"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_pm4b7")
+albedo_texture = ExtResource("2_gfpfx")
 roughness = 0.690035
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ghxh1"]
@@ -1790,10 +1790,10 @@ point_count = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_rxc4j"]
 
 [node name="WhiteDog" type="CharacterBody3D" groups=["dog", "white_dogs"]]
-script = ExtResource("2_ewxl2")
+script = ExtResource("1_0s1nf")
 
 [node name="Rig" type="Node3D" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Rig"]
 bones/0/name = "Root"
