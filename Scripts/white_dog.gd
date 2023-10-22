@@ -34,7 +34,7 @@ func _process(delta):
 	# Sense
 	var vec_to_target = target_location - global_transform.origin
 	var distance = vec_to_target.length()
-	sensor_distance_to_target.sensor_value = 1# distance / 50
+	sensor_distance_to_target.sensor_value = distance / 10
 	
 	# Think
 	ai.evaluate_options(delta)
@@ -51,7 +51,7 @@ func _process(delta):
 	if current_action.name == "Move":
 		if distance <= 4.0:
 			current_action.is_finished = true
-	elif current_action.name == "Pickup":
+	elif current_action.name == "Bark":
 		current_action.is_finished = true
 
 func _physics_process(delta):
